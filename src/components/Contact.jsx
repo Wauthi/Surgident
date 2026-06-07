@@ -95,7 +95,7 @@ export default function Contact() {
               <div style={{ marginTop: '8px', width: '100%' }}>
                 <iframe
                   title="Surgident Location"
-                  src="https://www.google.com/maps?q=-1.3009,36.8155&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7977.578660565721!2d36.8253703748035!3d-1.301295698686341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f113f5070af9b%3A0x90bd4c2ea5dcb229!2ssurgident%20Limited!5e0!3m2!1sen!2ske!4v1780858509385!5m2!1sen!2ske"
                   className='map-frame'
                   loading="lazy"
                 />
