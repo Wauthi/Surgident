@@ -22,6 +22,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
     const handleClickOutside = (e) => {
       if (menuOpen && !e.target.closest('#mobileMenu') && !e.target.closest('#hamburger')) {
         setMenuOpen(false);
@@ -64,7 +65,7 @@ export default function Navbar() {
             </div>
 
             <div className="nav-cta">
-              <a href="tel:+254700000000" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '13px' }}>
+              <a href="tel:+254716583415" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '13px' }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.01 2.82 2 2 0 012 .66h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>

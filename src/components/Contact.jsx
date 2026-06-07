@@ -5,8 +5,21 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    const form = e.target;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' },
+    })
+      .then(() => {
+        alert("Message sent successfully! We'll get back to you soon.");
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      })
+      .catch(() => {
+        alert('Failed to send message. Please try again later.');
+      });
+    form.reset();
   };
 
   return (
@@ -105,32 +118,37 @@ export default function Contact() {
 
           <div className="contact-form fade-in">
             <div className="form-title">Send Us a Message</div>
-            <form onSubmit={handleSubmit}>
+            <form
+              action="https://formspree.io/f/xkoajaqw"
+              method="POST"
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
               <div className="form-row">
                 <div className="form-group">
                   <label>First Name</label>
-                  <input type="text" placeholder="John" />
+                  <input type="text" name= "fname" placeholder="John" />
                 </div>
                 <div className="form-group">
                   <label>Last Name</label>
-                  <input type="text" placeholder="Doe" />
+                  <input type="text" name= "lname" placeholder="Doe" />
                 </div>
               </div>
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="john@hospital.co.ke" />
+                <input type="email" name="email" placeholder="john@hospital.co.ke" />
               </div>
               <div className="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+254 700 000 000" />
+                <input type="tel" name="phone" placeholder="+254 700 000 000" />
               </div>
               <div className="form-group">
                 <label>Organisation / Facility</label>
-                <input type="text" placeholder="e.g. Nairobi General Hospital" />
+                <input type="text" name="organisation" placeholder="e.g. Nairobi General Hospital" />
               </div>
               <div className="form-group">
                 <label>Type of Inquiry</label>
-                <select defaultValue="">
+                <select name="inquiryType" defaultValue="">
                   <option value="" disabled>Select inquiry type</option>
                   <option>Product Quotation</option>
                   <option>Order Placement</option>
@@ -142,7 +160,7 @@ export default function Contact() {
               </div>
               <div className="form-group">
                 <label>Message</label>
-                <textarea placeholder="Describe your requirements, list products needed, or ask any questions..." />
+                <textarea name= "message" placeholder="Describe your requirements, list products needed, or ask any questions..." />
               </div>
               <button
                 type="submit"
