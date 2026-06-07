@@ -1,5 +1,5 @@
 import { useFadeIn } from './hooks/useFadeIn';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
 import About from './components/About';
